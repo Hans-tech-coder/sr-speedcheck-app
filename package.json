@@ -1,0 +1,19 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "description": "Refactored full-stack scaffold for the Skyrocket Destinations quiz app.",
+  "main": "server/server.js",
+  "scripts": {
+    "dev": "node --watch server/server.js",
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "firebase-admin": "^13.7.0",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0"
+  }
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+    <div class="admin-shell">
+        <header class="admin-header">
+            <div>
+                <div class="admin-kicker retro-text">ADMIN RESULTS MONITORING</div>
+                <h1 class="admin-title">Mission Control Oversight</h1>
+                <p class="admin-copy">Review backend-computed attempts, leaderboard standings, and exported results.</p>
+            </div>
+            <div class="admin-actions">
+                <button id="btn-export-csv" type="button" class="utility-button">Export CSV</button>
+                <a class="utility-link" href="/">Back to Quiz</a>
+            </div>
+        </header>
+
+        <section id="admin-status" class="admin-status admin-status--info">Loading admin telemetry...</section>
+
+        <section id="admin-user-card" class="admin-user-card hidden">
+            <div class="admin-user-meta">
+                <div class="retro-text admin-user-label">AUTHORIZED ADMIN</div>
+                <div id="admin-user-name" class="admin-user-name">Admin Name</div>
+                <div id="admin-user-email" class="admin-user-email">admin@company.com</div>
+            </div>
+        </section>
+
+        <main id="admin-content" class="admin-content hidden">
+            <section class="summary-grid">
+                <article class="summary-card">
+                    <div class="summary-label retro-text">Participants</div>
+                    <div id="summary-participants" class="summary-value">0</div>
+                </article>
+                <article class="summary-card">
+                    <div class="summary-label retro-text">Attempts</div>
+                    <div id="summary-attempts" class="summary-value">0</div>
+                </article>
+                <article class="summary-card">
+                    <div class="summary-label retro-text">Average Score</div>
+                    <div id="summary-average" class="summary-value">0</div>
+                </article>
+                <article class="summary-card">
+                    <div class="summary-label retro-text">Top Score</div>
+                    <div id="summary-top" class="summary-value">0</div>
+                </article>
+                <article class="summary-card summary-card--wide">
+                    <div class="summary-label retro-text">Latest Completion</div>
+                    <div id="summary-latest" class="summary-detail">No attempts yet</div>
+                </article>
+            </section>
+
+            <section class="admin-grid">
+                <div class="admin-panel admin-panel--wide">
+                    <div class="panel-header">
+                        <h2 class="retro-text panel-title">Attempt Results</h2>
+                        <button id="btn-refresh-attempts" type="button" class="utility-button">Refresh</button>
+                    </div>
+
+                    <form id="attempt-filters-form" class="filters-grid">
+                        <label class="filter-field filter-field--search">
+                            <span class="filter-label">Search</span>
+                            <input id="attempt-search" type="search" class="admin-input" placeholder="Search name or email">
+                        </label>
+
+                        <label class="filter-field">
+                            <span class="filter-label">Department</span>
+                            <select id="attempt-department" class="admin-select">
+                                <option value="">All Departments</option>
+                            </select>
+                        </label>
+
+                        <label class="filter-field">
+                            <span class="filter-label">Sort By</span>
+                            <select id="attempt-sort-by" class="admin-select">
+                                <option value="completedAt">Completed At</option>
+                                <option value="score">Score</option>
+                                <option value="name">Name</option>
+                            </select>
+                        </label>
+
+                        <label class="filter-field">
+                            <span class="filter-label">Order</span>
+                            <select id="attempt-sort-order" class="admin-select">
+                                <option value="desc">Descending</option>
+                                <option value="asc">Ascending</option>
+                            </select>
+                        </label>
+
+                        <label class="filter-field">
+                            <span class="filter-label">Page Size</span>
+                            <select id="attempt-page-size" class="admin-select">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>
+                        </label>
+
+                        <label class="filter-field">
+                            <span class="filter-label">Start Date</span>
+                            <input id="attempt-start-date" type="date" class="admin-input">
+                        </label>
+
+                        <label class="filter-field">
+                            <span class="filter-label">End Date</span>
+                            <input id="attempt-end-date" type="date" class="admin-input">
+                        </label>
+
+                        <div class="filter-actions">
+                            <button type="submit" class="utility-button">Apply Filters</button>
+                            <button id="btn-reset-filters" type="button" class="utility-button utility-button--secondary">Reset</button>
+                        </div>
+                    </form>
+
+                    <div id="attempts-results-meta" class="results-meta">Loading attempts...</div>
+
+                    <div class="table-shell">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Department</th>
+                                    <th>Score</th>
+                                    <th>Correct</th>
+                                    <th>Completed</th>
+                                </tr>
+                            </thead>
+                            <tbody id="attempts-table-body">
+                                <tr><td colspan="6">Loading attempts...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination-row">
+                        <button id="btn-prev-page" type="button" class="utility-button">Previous</button>
+                        <div id="attempts-page-label" class="pagination-label">Page 1</div>
+                        <button id="btn-next-page" type="button" class="utility-button">Next</button>
+                    </div>
+                </div>
+
+                <aside class="admin-panel">
+                    <div class="panel-header">
+                        <h2 class="retro-text panel-title">Leaderboard</h2>
+                    </div>
+                    <div id="admin-leaderboard" class="leaderboard-list">
+                        <div class="leaderboard-empty">Loading leaderboard...</div>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="admin-panel">
+                <div class="panel-header">
+                    <h2 class="retro-text panel-title">Attempt Detail</h2>
+                </div>
+                <div id="attempt-detail-empty" class="detail-empty">Select an attempt to inspect backend-computed results.</div>
+                <div id="attempt-detail" class="detail-layout hidden">
+                    <div class="detail-meta">
+                        <div><span class="detail-label">Attempt ID</span><span id="detail-attempt-id"></span></div>
+                        <div><span class="detail-label">Participant</span><span id="detail-name"></span></div>
+                        <div><span class="detail-label">Email</span><span id="detail-email"></span></div>
+                        <div><span class="detail-label">Department</span><span id="detail-department"></span></div>
+                        <div><span class="detail-label">Score</span><span id="detail-score"></span></div>
+                        <div><span class="detail-label">Correct Answers</span><span id="detail-correct"></span></div>
+                        <div><span class="detail-label">Completed</span><span id="detail-completed"></span></div>
+                        <div><span class="detail-label">Content Version</span><span id="detail-version"></span></div>
+                    </div>
+
+                    <div class="table-shell">
+                        <table class="results-table results-table--detail">
+                            <thead>
+                                <tr>
+                                    <th>Question ID</th>
+                                    <th>Dept</th>
+                                    <th>Selected</th>
+                                    <th>Correct</th>
+                                    <th>Result</th>
+                                    <th>Points</th>
+                                </tr>
+                            </thead>
+                            <tbody id="attempt-detail-body">
+                                <tr><td colspan="6">Select an attempt to inspect details.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/admin.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control: Skyrocket Destinations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div id="session-controls" class="hidden">
+        <div class="session-user">
+            <img id="session-avatar" class="session-avatar hidden" alt="Authenticated user avatar">
+            <div class="session-identity">
+                <div id="session-name" class="session-name retro-text">VOYAGER</div>
+                <div id="session-email" class="session-email">name@agency.com</div>
+            </div>
+        </div>
+        <button id="btn-admin-portal" type="button" class="utility-button hidden">Admin Portal</button>
+        <button id="btn-logout" type="button" class="utility-button">Logout</button>
+    </div>
+
+    <div id="hud" class="hidden">
+        <div>VOYAGER: <span id="hud-name" class="hud-highlight">---</span></div>
+        <div>PROGRESS: <span id="progress-text" class="hud-highlight">0/24</span></div>
+        <div>SCORE: <span id="score-text" class="hud-highlight hud-score">0</span></div>
+    </div>
+
+    <div id="launchpad">
+        <div id="voyager-gate" class="form-container">
+            <h1>MISSION CONTROL:<br><span class="mission-title-accent">SKYROCKET DESTINATIONS</span></h1>
+            <p>VOYAGER REGISTRATION PROTOCOL</p>
+
+            <div id="auth-status" class="auth-status hidden"></div>
+
+            <div id="signed-out-view" class="auth-panel">
+                <div class="auth-copy">Sign in with your agency Google Workspace account to unlock mission access.</div>
+                <button id="btn-google-login" type="button" class="login-button">Sign In with Google</button>
+            </div>
+
+            <div id="signed-in-view" class="auth-panel hidden">
+                <div class="auth-user-card">
+                    <img id="auth-avatar" class="auth-avatar hidden" alt="Authenticated user avatar">
+                    <div class="auth-user-meta">
+                        <div class="auth-kicker retro-text">AUTHENTICATED VOYAGER</div>
+                        <div id="auth-name" class="auth-name">Voyager Name</div>
+                        <div id="auth-email" class="auth-email">voyager@agency.com</div>
+                    </div>
+                </div>
+
+                <div id="onboard-error" class="error-msg"></div>
+
+                <select id="voyager-dept" class="retro-select">
+                    <option value="" disabled selected>SELECT DEPARTMENT</option>
+                </select>
+
+                <button id="btn-lfg" type="button">Join Mission</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="map-viewport">
+        <div id="map-track">
+            <div id="path-line"></div>
+            <div id="stations-container">
+                <!-- Stations injected via JS -->
+            </div>
+
+            <div id="rocket-container">
+                <svg id="rocket-svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="var(--text-light)" d="M14 2h4v4h-4zm-2 4h8v2h-8zm-2 2h12v10H10zm-2 6h2v6H8zm14 0h2v6h-2zM8 20h16v2H8zm2 2h12v2H10zm2 2h8v2h-8zm2 2h4v2h-4z"/>
+                    <path fill="var(--juice)" d="M12 28h8v2h-8zM14 30h4v2h-4z"/>
+                    <path fill="var(--pond)" d="M14 10h4v4h-4z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div id="transmission-modal" class="overlay hidden">
+        <div class="panel-box">
+            <h2 class="retro-text transmission-title">INCOMING TRANSMISSION</h2>
+            <h3 id="trans-dept-name" class="retro-text transmission-subtitle">DEPT NAME</h3>
+
+            <div id="transmission-video" class="video-placeholder">
+                <div class="scanline"></div>
+                <div class="video-placeholder__fallback">[ VIDEO FEED PLACEHOLDER ]</div>
+            </div>
+
+            <div class="controls-row">
+                <label id="btnVideoComplete" class="override-label button-style">
+                    <input type="checkbox" id="override-toggle" class="hidden-checkbox">
+                    <span class="btn-text">TRANSMISSION COMPLETE</span>
+                </label>
+                <button id="btn-begin-clearance" class="hidden button-style">Begin Security Clearance</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="clearance-panel" class="hidden">
+        <div class="dept-title retro-text">SECURITY CLEARANCE: <span id="clearance-dept-name">DEPT NAME</span> [Q<span id="q-num">1</span>/<span id="q-total">2</span>]</div>
+        <div class="question-text" id="question-text">Question text goes here?</div>
+
+        <div class="options-grid" id="options-container">
+            <!-- Options injected via JS -->
+        </div>
+
+        <div class="feedback-area">
+            <div id="feedback-msg" class="feedback-msg"></div>
+            <button id="btn-next-action" class="hidden">Load Next Question</button>
+        </div>
+    </div>
+
+    <script src="/app.js" defer></script>
+</body>
+</html>
