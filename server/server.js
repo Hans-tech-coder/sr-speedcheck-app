@@ -39,6 +39,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET || "your_session_secret",
     resave: false,
     saveUninitialized: false,
+    proxy: isProduction,
     cookie: {
         httpOnly: true,
         sameSite: "lax",
