@@ -65,6 +65,13 @@ const optionsContainer = document.getElementById("options-container");
 const feedbackMsg = document.getElementById("feedback-msg");
 const btnNextAction = document.getElementById("btn-next-action");
 
+const YOUTUBE_IFRAME_API_SRC = "https://www.youtube.com/iframe_api";
+
+let youtubeApiPromise = null;
+let youtubePlayerRenderId = 0;
+
+window.youtubePlayer = window.youtubePlayer || null;
+
 function calculateMaxScore(departments) {
     return departments.reduce((total, department) => total + (department.questions.length * 2), 0);
 }
@@ -136,6 +143,110 @@ function getCurrentQuestionMeta() {
         department,
         question
     };
+}
+
+function extractYouTubeVideoId(videoUrl) {
+    if (!videoUrl) {
+        return "";
+    }
+
+    let parsedUrl;
+
+    try {
+        parsedUrl = new URL(videoUrl.trim());
+    } catch (_error) {
+        return "";
+    }
+
+    const host = parsedUrl.hostname.toLowerCase();
+    const pathParts = parsedUrl.pathname.split("/").filter(Boolean);
+    let videoId = parsedUrl.searchParams.get("v");
+
+    if (!videoId && host === "youtu.be") {
+        videoId = pathParts[0];
+    }
+
+    if (!videoId && (pathParts[0] === "embed" || pathParts[0] === "shorts")) {
+        videoId = pathParts[1];
+    }
+
+    return videoId || "";
+}
+
+function loadYouTubeIframeApi() {
+    if (window.YT?.Player) {
+        return Promise.resolve(window.YT);
+    }
+
+    if (youtubeApiPromise) {
+        return youtubeApiPromise;
+    }
+
+    youtubeApiPromise = new Promise((resolve, reject) => {
+        const existingScript = document.querySelector(`script[src="${YOUTUBE_IFRAME_API_SRC}"]`);
+        const previousReadyHandler = window.onYouTubeIframeAPIReady;
+
+        window.onYouTubeIframeAPIReady = () => {
+            if (typeof previousReadyHandler === "function") {
+                previousReadyHandler();
+            }
+
+            resolve(window.YT);
+        };
+
+        if (existingScript) {
+            existingScript.addEventListener("load", () => {
+                if (window.YT?.Player) {
+                    resolve(window.YT);
+                }
+            }, { once: true });
+            existingScript.addEventListener("error", () => {
+                youtubeApiPromise = null;
+                reject(new Error("youtube_iframe_api_load_failed"));
+            }, { once: true });
+            return;
+        }
+
+        const script = document.createElement("script");
+        script.src = YOUTUBE_IFRAME_API_SRC;
+        script.async = true;
+        script.addEventListener("error", () => {
+            youtubeApiPromise = null;
+            reject(new Error("youtube_iframe_api_load_failed"));
+        }, { once: true });
+        document.head.appendChild(script);
+    });
+
+    return youtubeApiPromise;
+}
+
+function destroyYouTubePlayer() {
+    if (window.youtubePlayer && typeof window.youtubePlayer.destroy === "function") {
+        try {
+            window.youtubePlayer.destroy();
+        } catch (_error) {
+            // Ignore teardown errors so the quiz flow can continue.
+        }
+    }
+
+    window.youtubePlayer = null;
+}
+
+function stopTransmissionPlayback() {
+    if (window.youtubePlayer && typeof window.youtubePlayer.stopVideo === "function") {
+        try {
+            window.youtubePlayer.stopVideo();
+            return;
+        } catch (_error) {
+            // Fall through to the iframe reset if the API instance is unavailable.
+        }
+    }
+
+    const iframe = transmissionVideo.querySelector("iframe");
+
+    if (iframe && iframe.src) {
+        iframe.src = iframe.src;
+    }
 }
 
 function buildLeaderboardMarkup(leaderboardData) {
@@ -350,27 +461,13 @@ function buildMediaEmbed(videoUrl, departmentName) {
     }
 
     if (host === "youtu.be" || host.endsWith("youtube.com")) {
-        const pathParts = pathname.split("/").filter(Boolean);
-        let videoId = parsedUrl.searchParams.get("v");
-
-        if (!videoId && host === "youtu.be") {
-            videoId = pathParts[0];
-        }
-
-        if (!videoId && (pathParts[0] === "embed" || pathParts[0] === "shorts")) {
-            videoId = pathParts[1];
-        }
+        const videoId = extractYouTubeVideoId(trimmedUrl);
 
         if (videoId) {
             return {
-                tagName: "iframe",
-                attributes: {
-                    src: `https://www.youtube.com/embed/${videoId}?rel=0`,
-                    title: `${departmentName} transmission`,
-                    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
-                    allowfullscreen: true,
-                    referrerpolicy: "strict-origin-when-cross-origin"
-                }
+                provider: "youtube",
+                videoId,
+                title: `${departmentName} transmission`
             };
         }
     }
@@ -405,27 +502,65 @@ function buildMediaEmbed(videoUrl, departmentName) {
 }
 
 function renderTransmissionVideo(videoUrl, departmentName) {
+    stopTransmissionPlayback();
+    destroyYouTubePlayer();
     transmissionVideo.innerHTML = "";
 
     const mediaConfig = buildMediaEmbed(videoUrl, departmentName);
 
     if (mediaConfig) {
-        const mediaElement = document.createElement(mediaConfig.tagName);
-        mediaElement.className = "video-placeholder__media";
+        if (mediaConfig.provider === "youtube") {
+            const playerMountId = `youtube-player-${++youtubePlayerRenderId}`;
+            const playerMount = document.createElement("div");
+            playerMount.id = playerMountId;
+            playerMount.className = "video-placeholder__media";
+            transmissionVideo.appendChild(playerMount);
 
-        Object.entries(mediaConfig.attributes).forEach(([attribute, value]) => {
-            if (typeof value === "boolean") {
-                if (value) {
-                    mediaElement.setAttribute(attribute, "");
+            loadYouTubeIframeApi()
+                .then(() => {
+                    if (!transmissionVideo.contains(playerMount) || !window.YT?.Player) {
+                        return;
+                    }
+
+                    window.youtubePlayer = new window.YT.Player(playerMountId, {
+                        videoId: mediaConfig.videoId,
+                        playerVars: {
+                            rel: 0
+                        }
+                    });
+                })
+                .catch(() => {
+                    if (!transmissionVideo.contains(playerMount)) {
+                        return;
+                    }
+
+                    const iframeFallback = document.createElement("iframe");
+                    iframeFallback.className = "video-placeholder__media";
+                    iframeFallback.setAttribute("src", `https://www.youtube.com/embed/${mediaConfig.videoId}?rel=0`);
+                    iframeFallback.setAttribute("title", mediaConfig.title);
+                    iframeFallback.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+                    iframeFallback.setAttribute("allowfullscreen", "");
+                    iframeFallback.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+                    playerMount.replaceWith(iframeFallback);
+                });
+        } else {
+            const mediaElement = document.createElement(mediaConfig.tagName);
+            mediaElement.className = "video-placeholder__media";
+
+            Object.entries(mediaConfig.attributes).forEach(([attribute, value]) => {
+                if (typeof value === "boolean") {
+                    if (value) {
+                        mediaElement.setAttribute(attribute, "");
+                    }
+
+                    return;
                 }
 
-                return;
-            }
+                mediaElement.setAttribute(attribute, value);
+            });
 
-            mediaElement.setAttribute(attribute, value);
-        });
-
-        transmissionVideo.appendChild(mediaElement);
+            transmissionVideo.appendChild(mediaElement);
+        }
     } else {
         const fallback = document.createElement("div");
         fallback.className = "video-placeholder__fallback";
@@ -923,6 +1058,7 @@ overrideToggle.addEventListener("change", (event) => {
 });
 
 btnBeginClearance.addEventListener("click", () => {
+    stopTransmissionPlayback();
     transModal.classList.add("hidden");
     startClearancePhase();
 });

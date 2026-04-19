@@ -1,460 +1,555 @@
 {
-  "departments": [
-    {
-      "id": "technology",
-      "name": "Technology",
-      "videoUrl": "https://youtu.be/IxZU8LmV6aI?si=AB2p0DCPaQDQdDU7",
-      "questions": [
-        {
-          "id": "technology-q1",
-          "question": "What drives our core architecture?",
-          "options": ["Cloud", "Paper", "Magic", "Hopes"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "technology-q2",
-          "question": "Which defines our stack?",
-          "options": ["Scalable", "Rigid", "Manual", "Analog"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "e-commerce",
-      "name": "E-commerce",
-      "videoUrl": "https://youtu.be/IxZU8LmV6aI?si=AB2p0DCPaQDQdDU7",
-      "questions": [
-        {
-          "id": "e-commerce-q1",
-          "question": "Primary goal of the storefront?",
-          "options": ["Conversion", "Bouncing", "Lagging", "Hiding"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "e-commerce-q2",
-          "question": "What increases AOV?",
-          "options": ["Upselling", "Discounts", "Broken Links", "Out of Stock"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "project-management-office",
-      "name": "Project Management Office",
-      "videoUrl": "https://youtu.be/IxZU8LmV6aI?si=AB2p0DCPaQDQdDU7",
-      "questions": [
-        {
-          "id": "project-management-office-q1",
-          "question": "What keeps projects on track?",
-          "options": ["Timelines", "Guesswork", "Chaos", "Luck"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "project-management-office-q2",
-          "question": "Which methodology adapts to change?",
-          "options": ["Agile", "Waterfall", "Stagnant", "Ignoring"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "partnerships",
-      "name": "Partnerships",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "partnerships-q1",
-          "question": "Key to a good partnership?",
-          "options": ["Mutual Value", "Ghosting", "Selfishness", "Spam"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "partnerships-q2",
-          "question": "What solidifies a deal?",
-          "options": ["Contracts", "Handshakes", "Wishes", "Emojis"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "logistics",
-      "name": "Logistics",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "logistics-q1",
-          "question": "Most critical delivery metric?",
-          "options": ["On-Time Rate", "Box Color", "Driver Name", "Engine Sound"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "logistics-q2",
-          "question": "What minimizes shipping costs?",
-          "options": ["Route Optimization", "Driving Slower", "Bigger Boxes", "More Stamps"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "research-strategy",
-      "name": "Research & Strategy",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "research-strategy-q1",
-          "question": "First step in strategy?",
-          "options": ["Data Gathering", "Guessing", "Executing", "Sleeping"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "research-strategy-q2",
-          "question": "What defines a target audience?",
-          "options": ["Demographics", "Astrology", "Favorite Colors", "Shoe Size"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "business-intelligence",
-      "name": "Business Intelligence",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "business-intelligence-q1",
-          "question": "What powers our dashboards?",
-          "options": ["Clean Data", "Gut Feelings", "Rumors", "Magic 8-Ball"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "business-intelligence-q2",
-          "question": "Which metric indicates growth?",
-          "options": ["ROI", "Typos", "Coffee Consumed", "Desk Clutter"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "digital-socials",
-      "name": "Digital - Socials",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "digital-socials-q1",
-          "question": "Best way to drive engagement?",
-          "options": ["Authenticity", "Spam", "Silence", "Copying"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "digital-socials-q2",
-          "question": "What tracks social success?",
-          "options": ["Reach & Engagement", "Word Count", "Filter Used", "Device Type"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "digital-search-display",
-      "name": "Digital - Search & Display",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "digital-search-display-q1",
-          "question": "Goal of a display ad?",
-          "options": ["Click-Through", "Being Ignored", "Taking Up Space", "Annoying Users"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "digital-search-display-q2",
-          "question": "What lowers CPC?",
-          "options": ["High Quality Score", "Bidding More", "Blank Ads", "Typing Faster"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "digital-kol",
-      "name": "Digital - KOL",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "digital-kol-q1",
-          "question": "Why use Key Opinion Leaders?",
-          "options": ["Trust & Reach", "They look cool", "Free stuff", "Loud voices"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "digital-kol-q2",
-          "question": "Best metric for KOL success?",
-          "options": ["Conversions", "Follower count only", "Video length", "Outfit choice"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "digital-seo",
-      "name": "Digital - SEO",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "digital-seo-q1",
-          "question": "What improves organic ranking?",
-          "options": ["Quality Content", "Keyword Stuffing", "Hidden Text", "Buying Links"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "digital-seo-q2",
-          "question": "Which HTML tag is critical?",
-          "options": ["Title Tag", "<blink>", "<marquee>", "<spacer>"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "copy",
-      "name": "Copy",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "copy-q1",
-          "question": "What defines good copy?",
-          "options": ["Clarity & Persuasion", "Big Words", "Long Sentences", "Confusion"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "copy-q2",
-          "question": "Purpose of a CTA?",
-          "options": ["Drive Action", "Look Pretty", "Fill Space", "Confuse Reader"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "mvps",
-      "name": "MVPS",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "mvps-q1",
-          "question": "What does MVP stand for?",
-          "options": ["Minimum Viable Product", "Most Valuable Player", "Many Vast Planets", "Mega Visual Protocol"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "mvps-q2",
-          "question": "Goal of an MVP?",
-          "options": ["Test Hypotheses Fast", "Perfect Code", "Burn Budget", "Delay Launch"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "client-services-cso",
-      "name": "Client Services - CSO",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "client-services-cso-q1",
-          "question": "CSO's primary focus?",
-          "options": ["Client Satisfaction", "Internal Gossip", "Ignoring Emails", "Taking Naps"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "client-services-cso-q2",
-          "question": "How to handle a crisis?",
-          "options": ["Transparent Comm.", "Hiding", "Blaming Others", "Panic"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "client-services-pm",
-      "name": "Client Services - PM",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "client-services-pm-q1",
-          "question": "PM's main tool?",
-          "options": ["Gantt Chart", "Hammer", "Whistle", "Magic Wand"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "client-services-pm-q2",
-          "question": "What prevents scope creep?",
-          "options": ["Clear Requirements", "Saying Yes Always", "Ignoring the SOW", "Guessing"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "client-services-rm",
-      "name": "Client Services - RM",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "client-services-rm-q1",
-          "question": "Relationship Manager's goal?",
-          "options": ["Long-term Loyalty", "Quick Buck", "Arguing", "Silence"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "client-services-rm-q2",
-          "question": "Best way to build trust?",
-          "options": ["Delivering on Promises", "Excuses", "Overpromising", "Deflecting"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "f-a",
-      "name": "F&A",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "f-a-q1",
-          "question": "What keeps the lights on?",
-          "options": ["Cash Flow", "Good Vibes", "High Hopes", "Office Plants"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "f-a-q2",
-          "question": "Core of accounting?",
-          "options": ["Reconciliation", "Estimating", "Ignoring Receipts", "Creative Math"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "pr",
-      "name": "PR",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "pr-q1",
-          "question": "Goal of Public Relations?",
-          "options": ["Brand Reputation", "Making Memes", "Hiding Secrets", "Losing Contacts"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "pr-q2",
-          "question": "Best response to bad press?",
-          "options": ["Strategic Honesty", "No Comment", "Yelling", "Deleting Accounts"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "design",
-      "name": "Design",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "design-q1",
-          "question": "Core design principle?",
-          "options": ["Visual Hierarchy", "Making it 'Pop'", "Using Every Color", "Comic Sans"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "design-q2",
-          "question": "What ensures consistency?",
-          "options": ["Design Systems", "Memory", "Guessing", "Chaos"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "events",
-      "name": "Events",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "events-q1",
-          "question": "Key to event success?",
-          "options": ["Meticulous Planning", "Showing up late", "Hoping for the best", "Forgetting the venue"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "events-q2",
-          "question": "What leaves a lasting impression?",
-          "options": ["Experiential Details", "Cold Coffee", "Broken Mics", "Lost Badges"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "community-management",
-      "name": "Community Management",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "community-management-q1",
-          "question": "How to grow a community?",
-          "options": ["Active Engagement", "Banning Everyone", "Posting Once a Year", "Ignoring Comments"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "community-management-q2",
-          "question": "What defuses a troll?",
-          "options": ["Professional Moderation", "Feeding them", "Crying", "Joining them"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "customer-service",
-      "name": "Customer Service",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "customer-service-q1",
-          "question": "Most valued CS trait?",
-          "options": ["Empathy", "Speedreading", "Apathy", "Sarcasm"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "customer-service-q2",
-          "question": "Goal of a support ticket?",
-          "options": ["Resolution", "Keeping it open", "Passing the buck", "Deleting it"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "hr",
-      "name": "HR",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "hr-q1",
-          "question": "HR's primary asset focus?",
-          "options": ["People", "Printers", "Coffee Machine", "Office Chairs"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "hr-q2",
-          "question": "What drives retention?",
-          "options": ["Culture & Growth", "Free Pens", "Pizza Parties", "Micromanagement"],
-          "correctAnswer": 0
-        }
-      ]
-    },
-    {
-      "id": "artificial-intelligence",
-      "name": "Artificial Intelligence",
-      "videoUrl": "",
-      "questions": [
-        {
-          "id": "artificial-intelligence-q1",
-          "question": "What fuels AI models?",
-          "options": ["Data", "Magic", "Electricity only", "Dreams"],
-          "correctAnswer": 0
-        },
-        {
-          "id": "artificial-intelligence-q2",
-          "question": "Goal of Skyrocket AI?",
-          "options": ["Automation & Insight", "Taking over the world", "Making beep noises", "Playing chess"],
-          "correctAnswer": 0
-        }
-      ]
-    }
-  ]
+"departments": [
+{
+"id": "technology",
+"name": "Technology",
+"videoUrl": "https://youtu.be/wZyiET2Sfbk",
+"questions": [
+{
+"id": "technology-q1",
+"question": "What Automated turnover workflows bypassing existing ClickUp form limitations?",
+"options": [
+"Self-Hosted WordPress Management",
+"Custom Leave Turnover Web App",
+"Server Audit & Optimization",
+"Marketing Data Automation (n8n)"
+],
+"correctAnswer": 1
+},
+{
+"id": "technology-q2",
+"question": "What Eliminated manual data entry via automated Sheets-to-Slides syncing?",
+"options": [
+"Marketing Data Automation (n8n)",
+"Onboarding & Internal Workflow",
+"Crazy Egg Reporting Automation",
+"Custom UI/UX Gemini Gems"
+],
+"correctAnswer": 2
+}
+]
+},
+{
+"id": "business-intelligence",
+"name": "Business Intelligence",
+"videoUrl": "https://youtu.be/VZl9Zo-ehqo",
+"questions": [
+{
+"id": "business-intelligence-q1",
+"question": "What Automated real-time tracking for financial and operational visibility?",
+"options": [
+"Data Pipeline",
+"Server Audit & Optimization",
+"Custom Leave Turnover Web App",
+"Centralized Dashboards"
+],
+"correctAnswer": 3
+},
+{
+"id": "business-intelligence-q2",
+"question": "What Standardized internal data sovereignty for leadership decision-making?",
+"options": [
+"Data Pipeline",
+"Centralized Dashboards",
+"Marketing Data Automation",
+"Crazy Egg Reporting Automation"
+],
+"correctAnswer": 0
+}
+]
+},
+{
+"id": "e-commerce",
+"name": "E-commerce",
+"videoUrl": "https://youtu.be/k7vPq2DNtFA",
+"questions": [
+{
+"id": "e-commerce-q1",
+"question": "What Standardized partner matching and AI-driven vendor research.?",
+"options": [
+"Market Validation Service",
+"Studio Rental Business Model",
+"Competitor Scan",
+"Partnerships Directory"
+],
+"correctAnswer": 3
+},
+{
+"id": "e-commerce-q2",
+"question": "What Productized testing to track real-time consumer market demand.?",
+"options": [
+"Market Validation Service",
+"Studio Rental Business Model",
+"Partnerships Directory",
+"Competitor Scan"
+],
+"correctAnswer": 0
+}
+]
+},
+{
+"id": "research-and-strategy",
+"name": "Research & Strategy",
+"videoUrl": "https://youtu.be/m7edS-vGdIk",
+"questions": [
+{
+"id": "research-strategy-q1",
+"question": "What Automated strategy drafting and Junior Strategist ramp-up.?",
+"options": [
+"Essential Narrative Model",
+"Skyrocket Strategy Onboarding",
+"ThinkTank (AI Assistant)",
+"Uniform Weekly Standups"
+],
+"correctAnswer": 2
+},
+{
+"id": "research-strategy-q2",
+"question": "What Standardized performance tracking and operational accountability.?",
+"options": [
+"Uniform Weekly Standups",
+"Essential Narrative Model",
+"Skyrocket Strategy Onboarding",
+"ThinkTank (AI Assistant)"
+],
+"correctAnswer": 0
+}
+]
+},
+{
+"id": "ai",
+"name": "AI",
+"videoUrl": "https://youtu.be/KcXML0nre3A",
+"questions": [
+{
+"id": "ai-q1",
+"question": "What Accelerated internal AI adoption and workforce engagement.?",
+"options": [
+"Skyrocket AI 2026",
+"Gem Building Protocol",
+"Gemini workplace Migration",
+"ThinkTank (AI Assistant)"
+],
+"correctAnswer": 0
+},
+{
+"id": "ai-q2",
+"question": "What Standardized organization-wide AI infrastructure and protocols.?",
+"options": [
+"Skyrocket AI 2026",
+"Essential Narrative Model",
+"Gem Building Protocol",
+"Gemini workplace Migration"
+],
+"correctAnswer": 3
+}
+]
+},
+{
+"id": "digitals-social",
+"name": "Digitals - Social",
+"videoUrl": "https://youtu.be/KcbdynAVYts",
+"questions": [
+{
+"id": "digitals-social-q1",
+"question": "What Optimized resource allocation and team capacity management.?",
+"options": [
+"Content Studio Workflow",
+"OSMM Content Template",
+"ThinkTank (AI Assistant)",
+"Digital Account Tracker"
+],
+"correctAnswer": 3
+},
+{
+"id": "digitals-social-q2",
+"question": "What Decentralized short-form video production and high-volume workflows.?",
+"options": [
+"Content Studio Workflow",
+"OSMM Content Template",
+"Uniform Weekly Standups",
+"Digital Account Tracker"
+],
+"correctAnswer": 0
+}
+]
+},
+{
+"id": "digitals-seo-sem",
+"name": "Digitals - SEO/SEM",
+"videoUrl": "https://youtu.be/MM_RFWmjZs0",
+"questions": [
+{
+"id": "digitals-seo-sem-q1",
+"question": "What Slashed SEO-to-Copy handoff and turnaround cycles.?",
+"options": [
+"Technical SEO Ally",
+"Looker Studio Dashboard",
+"Content Writer Ally",
+"Search Facet Page"
+],
+"correctAnswer": 2
+},
+{
+"id": "digitals-seo-sem-q2",
+"question": "What Automated resolution of high-volume technical crawl issues.?",
+"options": [
+"Looker Studio Dashboard",
+"Technical SEO Ally",
+"Content Writer Ally",
+"SR Facets Optimization"
+],
+"correctAnswer": 1
+}
+]
+},
+{
+"id": "cs-cso",
+"name": "CS - CSO",
+"videoUrl": "https://youtu.be/3YK0rJuP1a0",
+"questions": [
+{
+"id": "cs-cso-q1",
+"question": "What Standardized client documentation and recurring invoicing procedures.?",
+"options": [
+"Finance & Admin ClickUp Template",
+"Google Drive Client Template",
+"Content Studio Workflow",
+"Updated Costing Sheet & CE Templates"
+],
+"correctAnswer": 0
+},
+{
+"id": "cs-cso-q2",
+"question": "What Aligned resource costing with standardized proposal execution.?",
+"options": [
+"Search Facet Page",
+"Google Drive Client Template",
+"Updated Costing Sheet & CE Templates",
+"Finance & Admin ClickUp Template"
+],
+"correctAnswer": 2
+}
+]
+},
+{
+"id": "cs-pms",
+"name": "CS - PMs",
+"videoUrl": "https://youtu.be/sZ5e1pbVbbU",
+"questions": [
+{
+"id": "cs-pms-q1",
+"question": "What Standardized proactive risk management and engagement health-checks.?",
+"options": [
+"Leave Turnover Form",
+"Hitchhiker's Guide Lexicon",
+"Universal ClickUp Template Library",
+"Daily RAG Status Standups"
+],
+"correctAnswer": 3
+},
+{
+"id": "cs-pms-q2",
+"question": "What Standardized knowledge transfer for employee leave cycles.?",
+"options": [
+"Leave Turnover Form",
+"Paid Media System",
+"KOL Finance & Onboarding System",
+"OSMM Content Ideation Framework"
+],
+"correctAnswer": 0
+}
+]
+},
+{
+"id": "cs-rms",
+"name": "CS - RMs",
+"videoUrl": "https://youtu.be/b5zMbD_Y50s",
+"questions": [
+{
+"id": "cs-rms-q1",
+"question": "What provided Workflow Continuity Through Shared Account Ownership And Visibility?",
+"options": [
+"Universal ClickUp Template Library",
+"KOL Finance & Onboarding System",
+"OSMM Content Template",
+"RM Pairing System"
+],
+"correctAnswer": 3
+},
+{
+"id": "cs-rms-q2",
+"question": "What resulted in 21 Contracts Renewed; 6 New Accounts Acquired; 3 Additional Services Expanded; 100% Continuity During RM Absences.?",
+"options": [
+"Daily RAG Status Standups",
+"RM Pairing System",
+"Paid Media System",
+"Leave Turnover Form"
+],
+"correctAnswer": 1
+}
+]
+},
+{
+"id": "pr",
+"name": "PR",
+"videoUrl": "https://youtu.be/iPylLxVpATE",
+"questions": [
+{
+"id": "pr-q1",
+"question": "What Standardized crisis pricing and streamlined pitch delivery.?",
+"options": [
+"Content Studio Workflow",
+"Crisis PR Rate Card",
+"Paid Media System",
+"SkAI Influencer Pilot"
+],
+"correctAnswer": 1
+},
+{
+"id": "pr-q2",
+"question": "What Productized AI influencer capabilities for active client pitching.?",
+"options": [
+"SkAI Influencer Pilot",
+"OSMM Content Template",
+"Crisis PR Rate Card",
+"Search Facet Page"
+],
+"correctAnswer": 0
+}
+]
+},
+{
+"id": "kol",
+"name": "KOL",
+"videoUrl": "https://youtu.be/mTAhaqrqh64",
+"questions": [
+{
+"id": "kol-q1",
+"question": "What Standardized talent sourcing and verified vetting protocols.?",
+"options": [
+"Talent Facet Website",
+"KOL Creator Network",
+"Influencer Relationship Database",
+"KOL Finance Compliance System"
+],
+"correctAnswer": 2
+},
+{
+"id": "kol-q2",
+"question": "What Standardized client discovery through structured capability showcasing.?",
+"options": [
+"Talent Facet Website",
+"KOL Finance Compliance System",
+"Campaign Execution Tracker",
+"Influencer Relationship Database"
+],
+"correctAnswer": 0
+}
+]
+},
+{
+"id": "copy",
+"name": "Copy",
+"videoUrl": "https://youtu.be/6qG9FytjjNY",
+"questions": [
+{
+"id": "copy-q1",
+"question": "What Migrated manual workflows to centralized systems.?",
+"options": [
+"Centralized Resource Hubs (Stan & Copper)",
+"Search Facet Page",
+"52-Unit AI Library",
+"Operational Guardrails"
+],
+"correctAnswer": 0
+},
+{
+"id": "copy-q2",
+"question": "What Installed restrictions to eliminate AI hallucinations.?",
+"options": [
+"Content Studio Workflow",
+"Centralized Resource Hubs (Stan & Copper)",
+"Operational Guardrails",
+"52-Unit AI Library"
+],
+"correctAnswer": 2
+}
+]
+},
+{
+"id": "design",
+"name": "Design",
+"videoUrl": "https://youtu.be/oP0Kxaj73HY",
+"questions": [
+{
+"id": "design-q1",
+"question": "What Standardized QA protocols for multi-tier design reviews?",
+"options": [
+"Design Leads Directory",
+"Optimized Grab Workflow",
+"Project Blast Area",
+"Project Green Light"
+],
+"correctAnswer": 3
+},
+{
+"id": "design-q2",
+"question": "What Guaranteed platform compliance via standardized safe-zone templates?",
+"options": [
+"Project Blast Area",
+"Design Leads Directory",
+"Project Green Light",
+"Refined Design Roles & KPIs"
+],
+"correctAnswer": 0
+}
+]
+},
+{
+"id": "events",
+"name": "Events",
+"videoUrl": "https://youtu.be/9j55P31vdlY",
+"questions": [
+{
+"id": "events-q1",
+"question": "What Accelerated Brand Ambassador sourcing and deployment cycles.?",
+"options": [
+"Project Rolodex",
+"Project Lyn",
+"Project Ground Control",
+"Events Deck & Reel Revamp"
+],
+"correctAnswer": 1
+},
+{
+"id": "events-q2",
+"question": "What Standardized location-based permit acquisition and validation.?",
+"options": [
+"Project Compass (Phase 3)",
+"Project Money Map",
+"Project Lyn",
+"Permits Passport"
+],
+"correctAnswer": 3
+}
+]
+},
+{
+"id": "community-management",
+"name": "Community Management",
+"videoUrl": "https://youtu.be/j139tgMm-hE",
+"questions": [
+{
+"id": "cm-q1",
+"question": "What Standardized specialized Community Management for high-velocity vertical scaling.?",
+"options": [
+"End-to-End CM Framework",
+"Resolution Intelligence Strategy",
+"Project Rolodex",
+"Permits Passport"
+],
+"correctAnswer": 0
+},
+{
+"id": "cm-q2",
+"question": "What Transitioned workflows from response speed to high-value sentiment resolution.?",
+"options": [
+"Design Leads Directory",
+"End-to-End CM Framework",
+"Resolution Intelligence Strategy",
+"Project Money Map"
+],
+"correctAnswer": 2
+}
+]
+},
+{
+"id": "hr",
+"name": "HR",
+"videoUrl": "https://youtu.be/XZZsJPA01B8",
+"questions": [
+{
+"id": "hr-q1",
+"question": "What Standardized access to centralized HR policies and resources.?",
+"options": [
+"Rookie Requisition Form",
+"Grow Request Form",
+"Leave Turnover Policy",
+"HR Hub (Project HR Nexus)"
+],
+"correctAnswer": 3
+},
+{
+"id": "hr-q2",
+"question": "What Achieved 100% compliance for company-wide performance reviews.?",
+"options": [
+"Rookie's Review Form",
+"Job Description Bank",
+"Performance Evaluation System",
+"JD Template Rollout"
+],
+"correctAnswer": 2
+}
+]
+},
+{
+"id": "mvps",
+"name": "MVPs",
+"videoUrl": "https://youtu.be/jenrN2vHMXs",
+"questions": [
+{
+"id": "mvps-q1",
+"question": "What Centralized cross-facet production workflows and role accountability.?",
+"options": [
+"ASC Integration System",
+"SKAi 2D Animation V2.0",
+"SR End-to-end Production System",
+"Node-based Workflow (Weavy.ai)"
+],
+"correctAnswer": 2
+},
+{
+"id": "mvps-q2",
+"question": "What Standardized multi-step creative pipelines via node-based AI integration.?",
+"options": [
+"Node-based Workflow (Weavy.ai)",
+"Video Production Traffic System",
+"SKAi 2D Animation V2.0",
+"ASC Integration System"
+],
+"correctAnswer": 0
+}
+]
+},
+{
+"id": "f-and-a",
+"name": "F&A",
+"videoUrl": "https://youtu.be/1jDZ7_-5i28",
+"questions": [
+{
+"id": "fa-q1",
+"question": "What Created a collaborated and dynamic events costing sheet?",
+"options": [
+"Paid Media System",
+"Improved Events Finance Costing",
+"KOL Payment Process Management",
+"Proper Financial Reporting"
+],
+"correctAnswer": 1
+},
+{
+"id": "fa-q2",
+"question": "What resulted in SLTs are more knowledgeable with finances and status of the company?",
+"options": [
+"Search Facet Page",
+"Improved Events Finance Costing",
+"Proper Financial Reporting",
+"KOL Payment Process Management"
+],
+"correctAnswer": 2
+}
+]
+}
+]
 }
